@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AuditReport</string>
+    <string name="systems_logo">Systems Logo</string>
+    <string name="login">LogIn</string>
+    <string name="todo">TODO</string>
+    <string name="log_in">Log In</string>
+    <string name="nameerror">Enter a valid name</string>
+    <string name="last_name">Last Name</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="registration">Registration</string>
+</resources>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#f26224"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15.7dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15.7dp"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            android:orientation="vertical"
+            android:paddingLeft="20.7dp"
+            tools:ignore="RtlHardcoded,RtlSymmetry">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="444dp"
+                android:background="@drawable/white_cueve_bg"
+                android:contentDescription="@string/todo" />
+
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20.7dp">
+
+
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="160dp"
+                    android:layout_height="42dp"
+                    android:layout_gravity= "center"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/systems"
+                    android:contentDescription="@string/systems_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7.7dp"
+                    android:text="@string/login"
+                    android:gravity="center"
+                    android:textColor="#030303"
+                    android:textSize="31.3sp"
+                    android:textStyle="bold" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layoutu_name"
+                    android:layout_below="@+id/logo"
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <EditText
+                        android:id="@+id/u_name"
+                        android:hint="User Name"
+                        android:textColorHint="#555555"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:textColor="#555555"
+                        tools:ignore="Autofill,HardcodedText"
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layoutpassword"
+                    android:textColorHint="#555555"
+                    android:layout_below="@+id/layoutu_name"
+                    app:passwordToggleEnabled="true"
+
+                    tools:ignore="ObsoleteLayoutParam">
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:hint="Password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textColor="#555555"
+                        tools:ignore="HardcodedText"
+                        android:autofillHints=""
+                        tools:targetApi="o" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <ProgressBar
+                    android:id="@+id/loading"
+                    android:layout_marginTop="35dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    />
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/log_in"
+                    android:textColor="#ffffff"
+                    android:backgroundTint="#333333"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@id/layoutpassword"
+                    tools:ignore="ObsoleteLayoutParam,UnusedAttribute" />
+
+                <TextView
+                    android:id="@+id/link_regist"
+                    android:text="Register"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="20dp"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
