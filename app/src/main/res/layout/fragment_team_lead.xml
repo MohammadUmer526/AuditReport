@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TeamLead">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="10dip"
+        android:background="#3CB8FF"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent">
+
+        <!-- Text Label -->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="To"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            tools:ignore="HardcodedText,RtlHardcoded" />
+
+        <!-- Spinner Element -->
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+
+            />
+
+
+        <LinearLayout
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:id="@+id/layout_text"
+            android:weightSum="1"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_marginTop="1dp"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/systems"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/ask_name"
+                android:layout_width="277dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="2"
+                android:textSize="14sp"
+                tools:ignore="Autofill,HardcodedText,InefficientWeight" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                android:src="@drawable/systems"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/ask_email"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="2"
+                android:textSize="14sp"
+                tools:ignore="Autofill,HardcodedText,InefficientWeight" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/systems"
+                tools:ignore="ContentDescription" />
+
+            <EditText
+                android:layout_marginTop="3dp"
+                android:id="@+id/ask_title_name"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:hint="Title"
+                android:textSize="14sp"
+                tools:ignore="Autofill,HardcodedText,InefficientWeight"
+                android:inputType="" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/ask_descp"
+            android:layout_width="match_parent"
+            android:layout_height="166dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:breakStrategy="balanced"
+            android:fitsSystemWindows="true"
+            android:gravity="top"
+            android:hint="Max limit is 196 characters"
+            android:inputType="textMultiLine"
+            android:padding="5dp"
+            android:singleLine="false"
+            android:textColor="#cccccc"
+            tools:ignore="Autofill,HardcodedText,UnusedAttribute" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:theme="@style/MyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:elevation="40dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
+            android:background="#741d69"
+            android:text="Submit"
+            tools:ignore="HardcodedText,UnusedAttribute" />
+    </LinearLayout>
+
+</FrameLayout>
