@@ -13,8 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".Registration"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".TabForm"></activity>
+        <activity android:name=".FormPageTwo" />
+        <activity android:name=".FormPageOne" />
+        <activity android:name=".Registration" />
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

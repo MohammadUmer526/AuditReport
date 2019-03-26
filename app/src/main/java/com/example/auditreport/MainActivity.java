@@ -10,8 +10,13 @@ import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,28 +42,38 @@ public class MainActivity extends AppCompatActivity{
     private Button btn_login;
     private ProgressBar loading;
 
-    //defining AwesomeValidation object
-    private AwesomeValidation awesomeValidation;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         // initialize awsomevalidation's object
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        //defining AwesomeValidation object
+        AwesomeValidation awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
         // Setting variables
-
         loading = findViewById(R.id.loading);
         email = findViewById(R.id.u_name);
         password = findViewById(R.id.password);
         btn_login = findViewById(R.id.btn_login);
         //btnlog_out = findViewById(R.id.log_out);
         TextView link_register = findViewById(R.id.link_regist);
+
+
+        //instance of spannable for coloring two different in a single TextView
+        // For Black color
+        Spannable word = new SpannableString("Not a member? ");
+        word.setSpan(new ForegroundColorSpan(Color.BLACK), 0, word.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        link_register.setText(word);
+
+        // For Orange color
+        Spannable word2 = new SpannableString("Sign Up");
+        word2.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.systemsorange)),
+                       0 , word2.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        link_register.append(word2);
 
         //instance of SessionManager
         sessionManager = new SessionManager(this);
@@ -76,6 +91,9 @@ public class MainActivity extends AppCompatActivity{
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FormPageOne.class));
+
+
                 String mEmail = email.getText().toString().trim();
                 String mPass = password.getText().toString().trim();
 
@@ -85,6 +103,7 @@ public class MainActivity extends AppCompatActivity{
                     email.setError("Please insert an user name");
                     password.setError("Please insert a password");
                 }
+
             }
 
 
@@ -96,7 +115,7 @@ public class MainActivity extends AppCompatActivity{
         link_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   startActivity(new Intent(MainActivity.this, Registration.class));
+                startActivity(new Intent(MainActivity.this, Registration.class));
             }
         });
 
