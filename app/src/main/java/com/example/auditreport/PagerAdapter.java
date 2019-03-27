@@ -17,10 +17,16 @@ public class PagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new TeamLead();
+                return new PMTab();
             case 1:
-                return null;
-            default:
+                return new SETab();
+
+            case 2:
+                return new DevTab();
+
+            case 3:
+                return new QATab();
+                default:
                 return null;
         }
     }
