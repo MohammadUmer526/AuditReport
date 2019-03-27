@@ -19,7 +19,7 @@
         android:padding="16dp"
         android:text="Tap to toggle expansion"
         tools:ignore="HardcodedText,UnusedAttribute" />
-
+<!--
     <net.cachapa.expandablelayout.ExpandableLayout
         android:id="@+id/expandable_layout_0"
         android:layout_width="match_parent"
@@ -39,6 +39,8 @@
             tools:ignore="HardcodedText,UnusedAttribute" />
 
     </net.cachapa.expandablelayout.ExpandableLayout>
+
+ -->
     <net.cachapa.expandablelayout.ExpandableLayout
         android:id="@+id/expandable_layout_1"
         android:layout_width="match_parent"

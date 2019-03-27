@@ -25,13 +25,13 @@ public class SETab extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_setab, container, false);
 
-       expandableLayout_0 = rootView.findViewById(R.id.expandable_layout_0);
+  //     expandableLayout_0 = rootView.findViewById(R.id.expandable_layout_0);
 
 
         expandableLayout_1 = rootView.findViewById(R.id.expandable_layout_1);
 
 
-
+/*
 
 
         expandableLayout_0.setOnExpansionUpdateListener(new ExpandableLayout.OnExpansionUpdateListener() {
@@ -41,7 +41,7 @@ public class SETab extends Fragment implements View.OnClickListener{
             }
         });
       //  expandButton_1.setOnClickListener(this);
-
+*/
 
         expandableLayout_1.setOnExpansionUpdateListener(new ExpandableLayout.OnExpansionUpdateListener() {
             @Override
@@ -65,13 +65,16 @@ public class SETab extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
 
-        if (expandableLayout_0.isExpanded()) {
-            expandableLayout_0.expand();
-        } else if (expandableLayout_1.isExpanded()) {
+        if (expandableLayout_1.isExpanded()) {
             expandableLayout_1.collapse();
-        } else {
-            expandableLayout_0.expand();
+        }
+        /*
+        else if (expandableLayout_1.isExpanded()) {
             expandableLayout_1.collapse();
+        }
+        */else {
+            expandableLayout_0.expand();
+           // expandableLayout_1.expand();
         }
     }
 
