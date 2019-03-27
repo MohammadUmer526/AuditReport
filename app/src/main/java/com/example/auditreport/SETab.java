@@ -15,7 +15,7 @@ import net.cachapa.expandablelayout.ExpandableLayout;
 
 public class SETab extends Fragment implements View.OnClickListener{
 
-    private ExpandableLayout expandableLayout_0, expandableLayout_1;
+    private ExpandableLayout  expandableLayout_1, expandableLayout_2, expandableLayout_3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,14 +68,11 @@ public class SETab extends Fragment implements View.OnClickListener{
         if (expandableLayout_1.isExpanded()) {
             expandableLayout_1.collapse();
         }
-        /*
-        else if (expandableLayout_1.isExpanded()) {
-            expandableLayout_1.collapse();
+
+        else  {
+            expandableLayout_1.expand();
         }
-        */else {
-            expandableLayout_0.expand();
-           // expandableLayout_1.expand();
-        }
+
     }
 
 }
