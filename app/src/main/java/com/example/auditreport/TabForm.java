@@ -2,7 +2,6 @@ package com.example.auditreport;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
 
@@ -10,9 +9,6 @@ import android.support.v4.content.ContextCompat;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-
 
 
 public class TabForm extends AppCompatActivity {

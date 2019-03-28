@@ -6,6 +6,7 @@
     <string name="log_in">Log In</string>
     <string name="nameerror">Enter a valid name</string>
     <string name="designationerror">Enter a valid designation</string>
+    <string name="ncerror">Enter a number</string>
     <string name="emailerror">Enter a valid e-mail</string>
     <string name="passworderror">Enter a valid password</string>
     <string name="last_name">Last Name</string>
@@ -34,6 +35,11 @@
     <string-array name="location_spinner">
         <item>Lahore</item>
         <item>Karachi</item>
+    </string-array>
+
+    <string-array name="verified_spinner">
+        <item>Yes</item>
+        <item>No</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

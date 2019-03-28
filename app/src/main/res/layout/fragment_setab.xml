@@ -8,28 +8,201 @@
     tools:context=".SETab">
 
     <TextView
-        android:id="@+id/expand_button"
+        android:id="@+id/expand_button_1"
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:windowBackground"
+        android:background="#333333"
         android:elevation="6dp"
         android:foreground="?selectableItemBackground"
         android:gravity="center"
-        android:padding="16dp"
-        android:text="Tap to toggle expansion"
+        android:textColor="#ffffff"
+        android:padding="6dp"
+        android:text="Project Initiation"
         tools:ignore="HardcodedText,UnusedAttribute" />
 
 
     <net.cachapa.expandablelayout.ExpandableLayout
         android:id="@+id/expandable_layout_1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="420dp"
         android:layout_weight="1"
-        android:background="#f00"
+        android:background="#ffffff"
         app:el_duration="1000"
         app:el_expanded="true"
         app:el_parallax="0.5">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Query"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:singleLine="false"
+                        android:text="Steven Rogers was born in the \nLower East Side of Manhattan, \nNew York City, in 1925 \nto poor Irish immigrants, \nSarah and Joseph Rogers."
+                        android:textStyle="bold"
+                        android:scrollbars="vertical"
+                        android:maxLines="4"
+                        tools:ignore="HardcodedText,TextViewEdits" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Evidence"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        tools:ignore="HardcodedText" />
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:inputType="text"
+                        android:scrollbars="vertical"
+                        />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Verified"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        tools:ignore="HardcodedText" />
+
+                    <Spinner
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Points"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"/>
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textStyle="bold"
+                        tools:ignore="Autofill,LabelFor" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Points Attain"
+                        android:background="#ffffff"
+                        android:textStyle="bold"
+                        android:textColor="@color/systemsorange"
+
+                        tools:ignore="HardcodedText" />
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exception"
+                        android:background="#ffffff"
+                        android:textStyle="bold"
+                        android:textColor="@color/systemsorange"
+                        />
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NC" />
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Remarks" />
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textStyle="bold" />
+                </TableRow>
+
+
+
+
+            </TableLayout>
+
+        </ScrollView>
+
 
 
     </net.cachapa.expandablelayout.ExpandableLayout>
@@ -40,24 +213,198 @@
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:windowBackground"
+        android:background="#333333"
         android:elevation="6dp"
         android:foreground="?selectableItemBackground"
         android:gravity="center"
-        android:padding="16dp"
-        android:text="Tap to toggle expansion"
+        android:padding="6dp"
+        android:textColor="#ffffff"
+        android:text="Project Planning"
         tools:ignore="HardcodedText,UnusedAttribute" />
 
 
     <net.cachapa.expandablelayout.ExpandableLayout
         android:id="@+id/expandable_layout_2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="420dp"
         android:layout_weight="1"
-        android:background="#f00"
+        android:background="#ffffff"
         app:el_duration="1000"
         app:el_expanded="true"
         app:el_parallax="0.5">
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Query"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/textViewBio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:singleLine="false"
+                        android:text="Steven Rogers was born in the \nLower East Side of Manhattan, \nNew York City, in 1925 \nto poor Irish immigrants, \nSarah and Joseph Rogers."
+                        android:textStyle="bold"
+                        android:scrollbars="vertical"
+                        android:maxLines="4"
+                        tools:ignore="HardcodedText,TextViewEdits" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Evidence"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        tools:ignore="HardcodedText" />
+
+                    <EditText
+                        android:id="@+id/texRealName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:inputType="text"
+                        android:scrollbars="vertical"
+                        />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Verified"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        tools:ignore="HardcodedText" />
+
+                    <Spinner
+                        android:id="@+id/textViewRealName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Points"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"/>
+
+                    <EditText
+                        android:id="@+id/textViewTeam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textStyle="bold"
+                        tools:ignore="Autofill,LabelFor" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Points Attain"
+                        android:background="#ffffff"
+                        android:textStyle="bold"
+                        android:textColor="@color/systemsorange"
+
+                        tools:ignore="HardcodedText" />
+
+                    <EditText
+                        android:id="@+id/textViewFirstAppearance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exception"
+                        android:background="#ffffff"
+                        android:textStyle="bold"
+                        android:textColor="@color/systemsorange"
+                        />
+
+                    <EditText
+                        android:id="@+id/textViewCreatedBy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:background="#ffffff"
+                    android:textColor="@color/systemsorange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NC" />
+
+                <EditText
+                    android:id="@+id/textViewPublisher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textStyle="bold" />
+            </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Remarks" />
+
+                    <EditText
+                        android:id="@+id/teublisher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textStyle="bold" />
+                </TableRow>
+
+
+
+
+            </TableLayout>
+
+        </ScrollView>
+
 
 
     </net.cachapa.expandablelayout.ExpandableLayout>
@@ -68,24 +415,197 @@
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:windowBackground"
+        android:background="#333333"
         android:elevation="6dp"
+        android:textColor="#ffffff"
         android:foreground="?selectableItemBackground"
         android:gravity="center"
-        android:padding="16dp"
-        android:text="Tap to toggle expansion"
+        android:padding="6dp"
+        android:text="Project Monitoring"
         tools:ignore="HardcodedText,UnusedAttribute" />
 
 
     <net.cachapa.expandablelayout.ExpandableLayout
         android:id="@+id/expandable_layout_3"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        android:layout_height="420dp"
         android:layout_weight="1"
-        android:background="#f00"
+        android:background="#ffffff"
         app:el_duration="1000"
         app:el_expanded="true"
         app:el_parallax="0.5">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Query"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:singleLine="false"
+                        android:text="Steven Rogers was born in the \nLower East Side of Manhattan, \nNew York City, in 1925 \nto poor Irish immigrants, \nSarah and Joseph Rogers."
+                        android:textStyle="bold"
+                        android:scrollbars="vertical"
+                        android:maxLines="4"
+                        tools:ignore="HardcodedText,TextViewEdits" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Evidence"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        tools:ignore="HardcodedText" />
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:inputType="text"
+                        android:scrollbars="vertical"
+                        />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Verified"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        tools:ignore="HardcodedText" />
+
+                    <Spinner
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Points"
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"/>
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textStyle="bold"
+                        tools:ignore="Autofill,LabelFor" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Points Attain"
+                        android:background="#ffffff"
+                        android:textStyle="bold"
+                        android:textColor="@color/systemsorange"
+
+                        tools:ignore="HardcodedText" />
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exception"
+                        android:background="#ffffff"
+                        android:textStyle="bold"
+                        android:textColor="@color/systemsorange"
+                        />
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NC" />
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:background="#ffffff"
+                        android:textColor="@color/systemsorange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Remarks" />
+
+                    <EditText
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textStyle="bold" />
+                </TableRow>
+
+
+
+
+            </TableLayout>
+
+        </ScrollView>
 
 
     </net.cachapa.expandablelayout.ExpandableLayout>

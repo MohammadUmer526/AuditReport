@@ -2,6 +2,7 @@ package com.example.auditreport;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,44 +12,52 @@ import net.cachapa.expandablelayout.ExpandableLayout;
 
 
 
-public class PMTab extends Fragment implements View.OnClickListener{
+public class PMTab extends Fragment implements View.OnClickListener {
 
 
-    private ExpandableLayout expandableLayout0;
-    private ExpandableLayout expandableLayout1;
-
+    private ExpandableLayout expandableLayout_1, expandableLayout_2, expandableLayout_3;
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View  rootView =  inflater.inflate(R.layout.fragment_pmtab, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_pmtab, container, false);
 
 
-        expandableLayout0 = rootView.findViewById(R.id.expandable_layout_0);
-        expandableLayout1 = rootView.findViewById(R.id.expandable_layout_1);
+        expandableLayout_1 = rootView.findViewById(R.id.expandable_layout_1);
+        expandableLayout_2 = rootView.findViewById(R.id.expandable_layout_2);
+        expandableLayout_3 = rootView.findViewById(R.id.expandable_layout_3);
 
 
-        expandableLayout0.setOnExpansionUpdateListener(new ExpandableLayout.OnExpansionUpdateListener() {
+        expandableLayout_1.setOnExpansionUpdateListener(new ExpandableLayout.OnExpansionUpdateListener() {
             @Override
             public void onExpansionUpdate(float expansionFraction, int state) {
                 Log.d("ExpandableLayout0", "State: " + state);
             }
         });
 
-        expandableLayout1.setOnExpansionUpdateListener(new ExpandableLayout.OnExpansionUpdateListener() {
+        expandableLayout_2.setOnExpansionUpdateListener(new ExpandableLayout.OnExpansionUpdateListener() {
             @Override
             public void onExpansionUpdate(float expansionFraction, int state) {
                 Log.d("ExpandableLayout1", "State: " + state);
             }
         });
 
-        rootView.findViewById(R.id.expand_button_0).setOnClickListener(this);
+        expandableLayout_3.setOnExpansionUpdateListener(new ExpandableLayout.OnExpansionUpdateListener() {
+            @Override
+            public void onExpansionUpdate(float expansionFraction, int state) {
+                Log.d("ExpandableLayout1", "State: " + state);
+            }
+        });
+
+
         rootView.findViewById(R.id.expand_button_1).setOnClickListener(this);
+        rootView.findViewById(R.id.expand_button_2).setOnClickListener(this);
+        rootView.findViewById(R.id.expand_button_3).setOnClickListener(this);
 
 
-        return  rootView;
+        return rootView;
 
     }
 
@@ -56,13 +65,25 @@ public class PMTab extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        if (v.getId() == R.id.expand_button_0) {
-            expandableLayout0.expand();
-            expandableLayout1.collapse();
-        } else {
-            expandableLayout0.collapse();
-            expandableLayout1.expand();
+        if (v.getId() == R.id.expand_button_1) {
+            if (expandableLayout_1.isExpanded()) {
+                expandableLayout_1.collapse();
+            } else {
+                expandableLayout_1.expand();
+            }
+        } else if (v.getId() == R.id.expand_button_2) {
+
+            if (expandableLayout_2.isExpanded()) {
+                expandableLayout_2.collapse();
+            } else {
+                expandableLayout_2.expand();
+            }
+        } else if (v.getId() == R.id.expand_button_3) {
+            if (expandableLayout_3.isExpanded()) {
+                expandableLayout_3.collapse();
+            } else {
+                expandableLayout_3.expand();
+            }
         }
     }
-
-    }
+}

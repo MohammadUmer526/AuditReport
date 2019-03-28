@@ -83,7 +83,7 @@
                     android:textCursorDrawable="@drawable/cursor_color"
                     android:maxLines="1"
                     tools:ignore="Autofill,LabelFor,RtlHardcoded"
-                    android:inputType="text"
+                    android:inputType="textPersonName"
                     android:layout_marginRight="3dp" />
 
 
@@ -126,7 +126,7 @@
                     android:textCursorDrawable="@drawable/cursor_color"
                     android:maxLines="1"
                     tools:ignore="Autofill,LabelFor,RtlHardcoded"
-                    android:inputType="text"
+                    android:inputType="textPersonName"
                     android:layout_marginRight="3dp" />
 
             </LinearLayout>
@@ -205,7 +205,7 @@
                     android:textCursorDrawable="@drawable/cursor_color"
                     android:maxLines="1"
                     tools:ignore="Autofill,LabelFor,RtlHardcoded"
-                    android:inputType="text"
+                    android:inputType="textPersonName"
                     android:layout_marginRight="3dp" />
 
             </LinearLayout>
@@ -248,7 +248,7 @@
                     android:textCursorDrawable="@drawable/cursor_color"
                     android:maxLines="1"
                     tools:ignore="Autofill,LabelFor,RtlHardcoded,TextFields"
-                    android:inputType="text"
+                    android:inputType="text|date"
                     android:layout_marginRight="3dp" />
 
             </LinearLayout>
