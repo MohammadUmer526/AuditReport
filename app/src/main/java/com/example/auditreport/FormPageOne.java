@@ -9,12 +9,25 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @SuppressWarnings("ALL")
@@ -25,21 +38,15 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
      private EditText projectName, customer, location, no_of_nc;
     private Spinner comp_spinner, track_spinner;
     private String TEXT_VIEW_KEY = "com.example.auditreport.FormPageOne";
+    //defining AwesomeValidation object
+    private AwesomeValidation awesomeValidation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formpageone);
 
-        AwesomeValidation awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
-
-        if(savedInstanceState != null){
-             EditText projectName;
-            projectName = findViewById(R.id.project_name_edit);
-            projectName.setText(savedInstanceState.getString("PM"));
-        }
-
-
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         projectName = findViewById(R.id.project_name_edit);
         customer = findViewById(R.id.customer_edit);
         //  location = findViewById(R.id.location_edit);
@@ -55,6 +62,7 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
                 "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
                 R.string.nameerror);
 
+
         awesomeValidation.addValidation(this, R.id.customer_edit,
                 "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
                 R.string.ncerror);
@@ -63,22 +71,28 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
              @Override
              public void onClick(View v) {
                  startActivity(new Intent(FormPageOne.this, FormPageTwo.class));
+
+                 String mProjectName = projectName.getText().toString().trim();
+                 String mCustomer = customer.getText().toString().trim();
+                 String mNoNc = no_of_nc.getText().toString().trim();
+
+                 if(!mProjectName.isEmpty() || !mCustomer.isEmpty() || !mNoNc.isEmpty()){
+                     step1(mProjectName, mCustomer, mNoNc);
+                 } else if(mProjectName.isEmpty()){
+                     projectName.setError("Enter a project name");
+                 }
+                 else if(mCustomer.isEmpty()){
+                     customer.setError("Enter a customer");
+                 }
+                 else if(mNoNc.isEmpty()){
+                     no_of_nc.setError("Enter NC");
+                 }
              }
          });
 
 
-    }
-
-        @Override
-       public void onSaveInstanceState(Bundle savedInstanceState) {
-
-
-            projectName = findViewById(R.id.project_name_edit);
-            String pm_Name = projectName.getText().toString();
-            savedInstanceState.putString("PM",pm_Name);
-            super.onSaveInstanceState(savedInstanceState);
-
         }
+
 
     /**
      * For spinners: To set another's element by element of first spinner
@@ -127,7 +141,69 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
 
         }
 
+        public void step1(final String projectName, final  String customerName,
+                          final String no_of_nc) {
+
+            String URL_STEP1 = "";
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STEP1,
+                    new Response.Listener<String>() {
+
+                        @Override
+
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                String success = jsonObject.getString("Success");
+                                JSONArray jsonArray = jsonObject.getJSONArray("login");
+
+                                if (success.equals("1")) {
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject object = jsonArray.getJSONObject(i);
+                                        String projectName = object.getString("projectName")
+                                                              .trim();
+                                        String customerName = object.getString("customerName")
+                                                              .trim();
+                                        String no_of_nc = object.getString("no_of_nc");
+                                        String id = object.getString("id").trim();
 
 
+                                    }
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
 
+                                Toast.makeText(FormPageOne.this, "Error" + e.toString(),
+                                        Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                            Toast.makeText(FormPageOne.this, "Error" + error.toString(),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+            )
+            {
+
+                // putting the valid credentials
+                @Override
+                protected Map<String, String> getParams(){
+                    Map<String,String> params = new HashMap<>();
+                    params.put("projectName",projectName);
+                    params.put("customerName", customerName);
+                    params.put("no_of_nc", no_of_nc);
+                    return  params;
+                }
+
+        };
+
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            requestQueue.add(stringRequest);
+    }
 }

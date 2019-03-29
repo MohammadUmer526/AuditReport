@@ -40,6 +40,7 @@
     <string-array name="verified_spinner">
         <item>Yes</item>
         <item>No</item>
+        <item>N/A</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

@@ -1,5 +1,6 @@
 package com.example.auditreport;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -16,18 +17,25 @@ public class PagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0:
-                return new PMTab();
+
+           case 0:
+              return new QATab();
             case 1:
+                return new PMTab();
+            case 2:
                 return new SETab();
 
-            case 2:
-                return new DevTab();
-
             case 3:
+                return new SETab();
+
+            case 4:
                 return new QATab();
+
+            case 5:
+                return new NextTab();
                 default:
-                return null;
+                    return null;
+
         }
     }
 

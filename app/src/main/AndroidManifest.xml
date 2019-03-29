@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".NC"></activity>
         <activity android:name=".TabForm" />
         <activity android:name=".FormPageTwo" />
         <activity android:name=".FormPageOne" />

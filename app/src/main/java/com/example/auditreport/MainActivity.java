@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity{
         sessionManager = new SessionManager(this);
 
 
-        awesomeValidation.addValidation(this, R.id.u_name,
-                                        "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
-                                          R.string.nameerror);
+       // awesomeValidation.addValidation(this, R.id.u_name,
+         //                               "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
+           //                               R.string.nameerror);
 
 
 
@@ -189,7 +189,6 @@ public class MainActivity extends AppCompatActivity{
             }
 
                 };
-
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
                                     requestQueue.add(stringRequest);

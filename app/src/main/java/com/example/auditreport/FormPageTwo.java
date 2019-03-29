@@ -26,8 +26,8 @@ public class FormPageTwo extends AppCompatActivity {
                 R.string.nameerror);
 
 
-        btn_Prev = findViewById(R.id.btn_prev);
-        btn_Save = findViewById(R.id.btn_save);
+        btn_Prev = findViewById(R.id.btn_prev_gen);
+        btn_Save = findViewById(R.id.btn_next_gen);
 
         btn_Prev.setOnClickListener(new View.OnClickListener() {
             @Override
