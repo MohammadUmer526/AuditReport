@@ -1,7 +1,7 @@
 package com.example.auditreport;
 
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 import net.cachapa.expandablelayout.ExpandableLayout;
@@ -24,7 +25,10 @@ import net.cachapa.expandablelayout.ExpandableLayout;
 public class SETab extends Fragment implements View.OnClickListener {
 
     private Spinner spinner_se_pi, spinner_se_pp, spinner_se_pm;
-    private EditText edt_pi_points_attain, edt_pi_total_points;
+    private TextView txt_pi_points_attain;
+    private TextView txt_pp_points_attain;
+    private TextView txt_pm_points_attain;
+    private TextView txt_pi_total_points;
 
 
     private ExpandableLayout expandableLayout_1, expandableLayout_2, expandableLayout_3;
@@ -36,7 +40,7 @@ public class SETab extends Fragment implements View.OnClickListener {
 
 
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_setab, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_setab, container, false);
 
         expandableLayout_1 = rootView.findViewById(R.id.expandable_layout_1);
         expandableLayout_2 = rootView.findViewById(R.id.expandable_layout_2);
@@ -46,19 +50,37 @@ public class SETab extends Fragment implements View.OnClickListener {
         spinner_se_pp = rootView.findViewById(R.id.spinner_se_pp);
         spinner_se_pm = rootView.findViewById(R.id.spinner_se_pm);
 
-        edt_pi_points_attain = rootView.findViewById(R.id.edt_pi_points_attain);
-        edt_pi_total_points = rootView.findViewById(R.id.edt_pi_total_points);
+        txt_pi_points_attain = rootView.findViewById(R.id.txt_pi_points_attain);
+        txt_pp_points_attain = rootView.findViewById(R.id.txt_pp_points_attain);
+        txt_pm_points_attain = rootView.findViewById(R.id.txt_pm_points_attain);
+
+        txt_pi_total_points = rootView.findViewById(R.id.txt_pi_total_points);
+        TextView edt_pm_total_points = rootView.findViewById(R.id.txt_pm_total_points);
+        TextView edt_pp_total_points = rootView.findViewById(R.id.txt_pp_total_points);
 
         spinner_se_pi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
+            @SuppressLint("SetTextI18n")
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
                 // TODO Auto-generated method stub
 
-                if (spinner_se_pi.getSelectedItem().toString().equals("Yes")) {
-                    edt_pi_points_attain.setText("1");
-                } else if (spinner_se_pi.getSelectedItem().toString().equals("No")) {
-                    edt_pi_points_attain.setText("0");
+                txt_pi_points_attain = rootView.findViewById(R.id.txt_pi_points_attain);
+                txt_pi_total_points = rootView.findViewById(R.id.txt_pi_total_points);
+
+                switch (spinner_se_pi.getSelectedItem().toString()) {
+                    case "Yes":
+                       // edt_pi_points_attain.setText(String.valueOf(1));
+
+                        break;
+                    case "No":
+                        txt_pi_points_attain.setText(String.valueOf(0));
+
+                        break;
+                    case "N/A":
+                        txt_pi_points_attain.setText(String.valueOf(0));
+                        txt_pi_total_points.setText(String.valueOf(0));
+                        break;
                 }
             }
 
@@ -67,10 +89,55 @@ public class SETab extends Fragment implements View.OnClickListener {
             }
         });
 
+        spinner_se_pp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                txt_pp_points_attain = rootView.findViewById(R.id.txt_pp_points_attain);
 
+                switch (spinner_se_pp.getSelectedItem().toString()){
+                    case "Yes":
+                       // txt_pp_points_attain.setText(String.valueOf(1));
+                       // break;
+                    case "No":
+                        txt_pp_points_attain.setText(String.valueOf(0));
+                        break;
+                    case "N/A":
+                        txt_pp_points_attain.setText("0");
+                        break;
+                }
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
 
+        spinner_se_pm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                txt_pm_points_attain = rootView.findViewById(R.id.txt_pm_points_attain);
+
+                switch (spinner_se_pm.getSelectedItem().toString()) {
+                    case "Yes":
+                     //   txt_pm_points_attain.setText(String.valueOf(1));
+                      //  break;
+                    case "No":
+                        txt_pm_points_attain.setText(String.valueOf(0));
+                        break;
+                    case "N/A":
+                        txt_pm_points_attain.setText("0");
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+
+        });
 
 
         expandableLayout_1.setOnExpansionUpdateListener(new ExpandableLayout.OnExpansionUpdateListener() {
@@ -105,17 +172,14 @@ public class SETab extends Fragment implements View.OnClickListener {
         return rootView;
 
 
-
-
     }
-
 
 
     @Override
     public void onClick(View view) {
 
-        edt_pi_points_attain = view.findViewById(R.id.edt_pi_points_attain);
-        edt_pi_total_points = view.findViewById(R.id.edt_pi_total_points);
+        txt_pi_points_attain = view.findViewById(R.id.txt_pi_points_attain);
+        txt_pi_total_points = view.findViewById(R.id.txt_pi_total_points);
 
 
 
@@ -139,11 +203,7 @@ public class SETab extends Fragment implements View.OnClickListener {
                 expandableLayout_3.expand();
             }
         }
-
-
     }
-
-
 
 
 }

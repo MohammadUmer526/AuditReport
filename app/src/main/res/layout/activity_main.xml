@@ -25,7 +25,6 @@
             tools:ignore="RtlHardcoded,RtlSymmetry">
 
             <ImageView
-                android:id="@+id/img_curve"
                 android:layout_width="wrap_content"
                 android:layout_height="444dp"
                 android:background="@drawable/white_cueve_bg"
@@ -35,7 +34,6 @@
 
 
             <LinearLayout
-                android:id="@+id/linear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

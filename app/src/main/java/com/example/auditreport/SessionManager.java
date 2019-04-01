@@ -16,6 +16,7 @@ public class SessionManager {
     public static final String NAME = "NAME";
     public static final String EMAIl = "EMAIL";
     public static final String ID = "ID";
+    public static final String mNoNc = "mNoNc";
 
     public SessionManager(Context context){
         this.context = context;
@@ -30,6 +31,11 @@ public class SessionManager {
         editor.putString(NAME, name);
         editor.putString(EMAIl,email);
         editor.putString(ID, id);
+        editor.apply();
+    }
+
+    public void createSession2(String mnonc){
+        editor.putString(mNoNc, mnonc);
         editor.apply();
     }
 
@@ -51,6 +57,12 @@ public class SessionManager {
         user.put(ID,sharedPreferences.getString(ID,null));
         return  user;
 
+    }
+
+    public HashMap<String, String> getmNoNc(){
+        HashMap<String, String> mnonc = new HashMap<>();
+        mnonc.put(mNoNc, sharedPreferences.getString(mNoNc, null));
+        return mnonc;
     }
 
 

@@ -37,6 +37,7 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
     private TextView txt_Next;
      private EditText projectName, customer, location, no_of_nc;
     private Spinner comp_spinner, track_spinner;
+    private SessionManager sessionManager;
     private String TEXT_VIEW_KEY = "com.example.auditreport.FormPageOne";
     //defining AwesomeValidation object
     private AwesomeValidation awesomeValidation;
@@ -75,6 +76,8 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
                  String mProjectName = projectName.getText().toString().trim();
                  String mCustomer = customer.getText().toString().trim();
                  String mNoNc = no_of_nc.getText().toString().trim();
+                 sessionManager.createSession2(mNoNc);
+
 
                  if(!mProjectName.isEmpty() || !mCustomer.isEmpty() || !mNoNc.isEmpty()){
                      step1(mProjectName, mCustomer, mNoNc);
@@ -92,6 +95,8 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
 
 
         }
+
+
 
 
     /**
@@ -206,4 +211,6 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             requestQueue.add(stringRequest);
     }
+
+
 }

@@ -3,21 +3,16 @@
     <string name="systems_logo">Systems Logo</string>
     <string name="login">LogIn</string>
     <string name="todo">TODO</string>
-    <string name="log_in">Log In</string>
     <string name="nameerror">Enter a valid name</string>
     <string name="designationerror">Enter a valid designation</string>
     <string name="ncerror">Enter a number</string>
     <string name="emailerror">Enter a valid e-mail</string>
-    <string name="passworderror">Enter a valid password</string>
     <string name="last_name">Last Name</string>
     <string name="password">Password</string>
-    <string name="register">Register</string>
     <string name="registration">Registration</string>
     <string name="_2018_systems_limited_privacy_policy">© 2018 Systems limited | Privacy Policy</string>
     <string name="designation">Designation</string>
     <string name="email">Email</string>
-    <string name="project">Project</string>
-    <string name="competency">Competency</string>
     <string name="number_of_nc">Number of NC:</string>
     <string name="general_information">General Information</string>
     <string name="next">Next</string>
@@ -28,8 +23,6 @@
         <item>Digital Framework</item>
         <item>CRM</item>
     </string-array>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="save">Save</string>
 
 
     <string-array name="location_spinner">
@@ -45,6 +38,5 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="hello">Hello</string>
 
 </resources>

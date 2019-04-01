@@ -116,14 +116,15 @@
                         android:textColor="@color/systemsorange"
                         tools:ignore="HardcodedText" />
 
-                    <EditText
-                        android:id="@+id/edt_pi_total_points"
+                    <TextView
+                        android:id="@+id/txt_pi_total_points"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
                         android:maxLength="3"
+                        android:text="3"
+                        android:gravity="center"
                         android:textStyle="bold"
-                        tools:ignore="Autofill,LabelFor" />
+                        tools:ignore="Autofill,HardcodedText,LabelFor" />
                 </TableRow>
 
                 <TableRow>
@@ -137,14 +138,15 @@
                         android:textColor="@color/systemsorange"
                         tools:ignore="HardcodedText" />
 
-                    <EditText
-                        android:id="@+id/edt_pi_points_attain"
+                    <TextView
+                        android:id="@+id/txt_pi_points_attain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
                         android:maxLength="3"
+                        android:text="3"
+                        android:gravity="center"
                         android:textStyle="bold"
-                        tools:ignore="Autofill,LabelFor" />
+                        tools:ignore="Autofill,HardcodedText,LabelFor" />
                 </TableRow>
 
                 <TableRow>
@@ -265,7 +267,6 @@
                         tools:ignore="HardcodedText" />
 
                     <TextView
-                        android:id="@+id/textViewBio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="textMultiLine"
@@ -289,13 +290,13 @@
                         tools:ignore="HardcodedText" />
 
                     <EditText
-                        android:id="@+id/texRealName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:inputType="text"
                         android:scrollbars="vertical"
-                        android:importantForAutofill="no" />
+                        android:importantForAutofill="no"
+                        tools:ignore="LabelFor,UnusedAttribute" />
                 </TableRow>
 
                 <TableRow>
@@ -311,6 +312,7 @@
 
                     <Spinner
                         android:id="@+id/spinner_se_pp"
+                        android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:entries="@array/verified_spinner"
@@ -328,14 +330,15 @@
                         android:textColor="@color/systemsorange"
                         tools:ignore="HardcodedText" />
 
-                    <EditText
-                        android:id="@+id/textViewTeam"
+                    <TextView
+                        android:id="@+id/txt_pp_total_points"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
                         android:textStyle="bold"
                         android:maxLength="3"
-                        tools:ignore="Autofill,LabelFor" />
+                        android:text="89"
+                        android:gravity="center"
+                        tools:ignore="Autofill,HardcodedText,LabelFor" />
                 </TableRow>
 
                 <TableRow>
@@ -350,14 +353,15 @@
 
                         tools:ignore="HardcodedText" />
 
-                    <EditText
-                        android:id="@+id/textViewFirstAppearance"
+                    <TextView
+                        android:id="@+id/txt_pp_points_attain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
                         android:maxLength="3"
+                        android:text="5"
+                        android:gravity="center"
                         android:textStyle="bold"
-                        tools:ignore="Autofill,LabelFor" />
+                        tools:ignore="Autofill,HardcodedText,LabelFor" />
                 </TableRow>
 
                 <TableRow>
@@ -372,7 +376,6 @@
                         tools:ignore="HardcodedText" />
 
                     <EditText
-                        android:id="@+id/textViewCreatedBy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
@@ -391,7 +394,6 @@
                     tools:ignore="HardcodedText" />
 
                 <EditText
-                    android:id="@+id/textViewPublisher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -411,7 +413,6 @@
                         tools:ignore="HardcodedText" />
 
                     <EditText
-                        android:id="@+id/teublisher"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="text"
@@ -508,7 +509,7 @@
                         android:textStyle="bold"
                         android:inputType="text"
                         android:scrollbars="vertical"
-                        />
+                        tools:ignore="Autofill,LabelFor" />
                 </TableRow>
 
                 <TableRow>
@@ -541,14 +542,15 @@
                         android:textColor="@color/systemsorange"
                         tools:ignore="HardcodedText" />
 
-                    <EditText
-
+                    <TextView
+                        android:id="@+id/txt_pm_total_points"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:maxLength="3"
-                        tools:ignore="Autofill,LabelFor" />
+                        android:text="10"
+                        tools:ignore="Autofill,HardcodedText,LabelFor" />
                 </TableRow>
 
                 <TableRow>
@@ -560,17 +562,18 @@
                         android:background="#ffffff"
                         android:textStyle="bold"
                         android:textColor="@color/systemsorange"
-
                         tools:ignore="HardcodedText" />
 
-                    <EditText
+                    <TextView
 
+                        android:id="@+id/txt_pm_points_attain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
                         android:maxLength="3"
+                        android:text="10"
+                        android:gravity="center"
                         android:textStyle="bold"
-                        tools:ignore="Autofill,LabelFor" />
+                        tools:ignore="Autofill,HardcodedText,LabelFor" />
                 </TableRow>
 
                 <TableRow>
@@ -589,7 +592,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        tools:ignore="Autofill,LabelFor,TextFields" />
+
+                        tools:ignore="Autofill,HardcodedText,LabelFor,TextFields" />
                 </TableRow>
 
                 <TableRow tools:ignore="TooManyViews">

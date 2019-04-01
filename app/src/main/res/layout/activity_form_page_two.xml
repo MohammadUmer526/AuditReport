@@ -51,7 +51,6 @@
 
 
             <LinearLayout
-                android:id="@+id/layout_project_manager"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="3dp"
@@ -60,7 +59,6 @@
                 tools:ignore="UselessParent">
 
                 <TextView
-                    android:id="@+id/project_manager"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -94,7 +92,6 @@
 
 
             <LinearLayout
-                android:id="@+id/layout_auditor"
                 android:layout_width="match_parent"
                 android:layout_height="50sp"
                 android:orientation="horizontal"
@@ -104,7 +101,6 @@
                 android:layout_marginRight="6dp">
 
                 <TextView
-                    android:id="@+id/auditor_name"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="#333333"
@@ -115,7 +111,6 @@
                     tools:ignore="HardcodedText" />
 
                 <EditText
-                    android:id="@+id/auditor_name_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
@@ -135,7 +130,6 @@
 
 
             <LinearLayout
-                android:id="@+id/qa_lead"
                 android:layout_width="match_parent"
                 android:layout_height="50sp"
                 android:orientation="horizontal"
@@ -145,7 +139,6 @@
                 android:layout_marginRight="6dp">
 
                 <TextView
-                    android:id="@+id/qalead_name"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="#333333"
@@ -156,7 +149,6 @@
                     tools:ignore="HardcodedText" />
 
                 <EditText
-                    android:id="@+id/qalead_name_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
@@ -175,7 +167,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/layout_dev_lead"
                 android:layout_width="match_parent"
                 android:layout_height="50sp"
                 android:orientation="horizontal"
@@ -185,7 +176,6 @@
                 android:layout_marginRight="6dp">
 
                 <TextView
-                    android:id="@+id/dev_lead_name"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="#333333"
@@ -196,7 +186,6 @@
                     tools:ignore="HardcodedText" />
 
                 <EditText
-                    android:id="@+id/da_lead_name_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
@@ -219,7 +208,6 @@
 
 
             <LinearLayout
-                android:id="@+id/layout_audit_date"
                 android:layout_width="match_parent"
                 android:layout_height="50sp"
                 android:orientation="horizontal"
@@ -229,7 +217,6 @@
                 android:layout_marginRight="6dp">
 
                 <TextView
-                    android:id="@+id/audit_date_head"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="#333333"
@@ -240,7 +227,6 @@
                     tools:ignore="HardcodedText" />
 
                 <EditText
-                    android:id="@+id/audit_date_head_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
@@ -260,7 +246,6 @@
 
 
             <LinearLayout
-                android:id="@+id/layout_comments"
                 android:layout_width="match_parent"
                 android:layout_height="100sp"
                 android:orientation="horizontal"
@@ -270,7 +255,6 @@
                 android:layout_marginRight="6dp">
 
                 <TextView
-                    android:id="@+id/comments_head"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="#333333"
@@ -281,7 +265,6 @@
                     tools:ignore="HardcodedText" />
 
                 <EditText
-                    android:id="@+id/comments_head_edit"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:overScrollMode="always"
@@ -361,8 +344,7 @@
 
 
           <RelativeLayout
-            android:id="@+id/relativeLayout1"
-            android:layout_width="match_parent"
+              android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
 
