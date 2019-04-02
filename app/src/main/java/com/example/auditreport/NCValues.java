@@ -70,7 +70,9 @@ public class NCValues {
     static ArrayList<NCValues> createNCValueList(Layout layout) {
         ArrayList<NCValues> ncValuesList = new ArrayList<>();
 
-        ncValuesList.add(new NCValues(R.id.txt_Nc1));
+        ncValuesList.add(new NCValues(layout.getText(R.id.txt_Nc1),R.id.txt_Summary,R.id.txt_Type,R.id.txt_Owner_1,
+                           R.id.txt_Total_Points,R.id.edt_Summary,R.id.txt_Type,R.id.edt_Type_1,
+                           R.id.edt_Owner_1,R.id.spinner_1));
 
 
 

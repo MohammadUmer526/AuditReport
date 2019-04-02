@@ -33,6 +33,7 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/txt_Summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="NC Summary: "
@@ -43,21 +44,22 @@
 
                 <EditText
 
-                    android:id="@+id/nc_1"
+                    android:id="@+id/edt_Summary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
+                    android:maxLines="4"
+                    android:scrollbars="vertical"
                     android:singleLine="false"
                     android:text="Steven Rogers was born in the \nLower East Side of Manhattan, \nNew York City, in 1925 \nto poor Irish immigrants, \nSarah and Joseph Rogers."
                     android:textStyle="bold"
-                    android:scrollbars="vertical"
-                    android:maxLines="4"
                     tools:ignore="HardcodedText,TextViewEdits" />
             </TableRow>
 
             <TableRow>
 
                 <TextView
+                    android:id="@+id/txt_Type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Type# 1"
@@ -67,6 +69,8 @@
                     tools:ignore="HardcodedText" />
 
                 <EditText
+                    android:id="@+id/edt_Type_1"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -79,6 +83,8 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/txt_Owner_1"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Owner# 1"
@@ -89,6 +95,7 @@
 
 
                 <EditText
+                    android:id="@+id/edt_Owner_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -103,6 +110,8 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/txt_Total_Points"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total Points"
@@ -112,7 +121,7 @@
                     tools:ignore="HardcodedText" />
 
                 <Spinner
-                    android:id="@+id/spinner_se_pi"
+                    android:id="@+id/spinner_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:entries="@array/nc_spinner"
