@@ -1,19 +1,9 @@
 package com.example.auditreport;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationStyle;
-
-
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -24,6 +14,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,9 +30,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-
-
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
 
     // declare the variables
@@ -66,22 +63,22 @@ public class MainActivity extends AppCompatActivity{
         // For Black color
         Spannable word = new SpannableString("Not a member? ");
         word.setSpan(new ForegroundColorSpan(Color.BLACK), 0, word.length(),
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         link_register.setText(word);
 
         // For Orange color
         Spannable word2 = new SpannableString("Sign Up");
         word2.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.systemsorange)),
-                       0 , word2.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                0 , word2.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         link_register.append(word2);
 
         //instance of SessionManager
         sessionManager = new SessionManager(this);
 
 
-       // awesomeValidation.addValidation(this, R.id.u_name,
-         //                               "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
-           //                               R.string.nameerror);
+        // awesomeValidation.addValidation(this, R.id.u_                                  name,
+        //                               "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
+        //                               R.string.nameerror);
 
 
 
@@ -91,7 +88,7 @@ public class MainActivity extends AppCompatActivity{
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, FormPageOne.class));
+                startActivity(new Intent(MainActivity.this, AuditerHome.class));
 
 
                 String mEmail = email.getText().toString().trim();
@@ -121,7 +118,7 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-        //LogIn method to perform login's functionalities
+    //LogIn method to perform login's functionalities
     public void logIn(final String email, final  String password){
         loading.setVisibility(View.VISIBLE);
         btn_login.setVisibility(View.GONE);
@@ -159,7 +156,7 @@ public class MainActivity extends AppCompatActivity{
                             loading.setVisibility(View.GONE);
                             btn_login.setVisibility(View.VISIBLE);
                             Toast.makeText(MainActivity.this, "Error" + e.toString(),
-                                            Toast.LENGTH_SHORT).show();
+                                    Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -170,12 +167,12 @@ public class MainActivity extends AppCompatActivity{
                         loading.setVisibility(View.GONE);
                         btn_login.setVisibility(View.VISIBLE);
                         Toast.makeText(MainActivity.this, "Error"+ error.toString(),
-                                        Toast.LENGTH_SHORT).show();
+                                Toast.LENGTH_SHORT).show();
                     }
 
 
-                       }
-                    )
+                }
+        )
 
         {
 
@@ -188,10 +185,10 @@ public class MainActivity extends AppCompatActivity{
                 return  params;
             }
 
-                };
+        };
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-                                    requestQueue.add(stringRequest);
+        requestQueue.add(stringRequest);
 
 
 

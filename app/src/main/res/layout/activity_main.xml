@@ -87,7 +87,6 @@
                     android:layout_below="@+id/layoutu_name"
                     android:textColorHint="#555555"
                     app:passwordToggleEnabled="true"
-
                     tools:ignore="ObsoleteLayoutParam">
 
                     <EditText

@@ -13,11 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity
+            android:name=".AuditSettings"
+            android:label="@string/title_activity_audit_settings"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AuditerHome"
+            android:label="@string/title_activity_auditer_home"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".NC" />
         <activity android:name=".TabForm" />
         <activity android:name=".FormPageTwo" />
         <activity android:name=".FormPageOne" />
         <activity android:name=".Registration" />
+        <activity android:name="charts.PieChartActivity" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop">

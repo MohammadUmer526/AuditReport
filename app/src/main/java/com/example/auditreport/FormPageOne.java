@@ -29,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.example.auditreport.SessionManager.mNoNc;
+
 
 @SuppressWarnings("ALL")
 public class FormPageOne extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -39,6 +41,7 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
     private Spinner comp_spinner, track_spinner;
     private SessionManager sessionManager;
     private String TEXT_VIEW_KEY = "com.example.auditreport.FormPageOne";
+
     //defining AwesomeValidation object
     private AwesomeValidation awesomeValidation;
 
@@ -50,6 +53,7 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         projectName = findViewById(R.id.project_name_edit);
         customer = findViewById(R.id.customer_edit);
+
         //  location = findViewById(R.id.location_edit);
         txt_Next = findViewById(R.id.txt_Nxt);
         no_of_nc = findViewById(R.id.number_of_nc_edit);
@@ -76,7 +80,7 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
                  String mProjectName = projectName.getText().toString().trim();
                  String mCustomer = customer.getText().toString().trim();
                  String mNoNc = no_of_nc.getText().toString().trim();
-                 sessionManager.createSession2(mNoNc);
+
 
 
                  if(!mProjectName.isEmpty() || !mCustomer.isEmpty() || !mNoNc.isEmpty()){
@@ -92,6 +96,7 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
                  }
              }
          });
+
 
 
         }
@@ -169,6 +174,7 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
                                         String customerName = object.getString("customerName")
                                                               .trim();
                                         String no_of_nc = object.getString("no_of_nc");
+                                        sessionManager.createSession2(mNoNc);
                                         String id = object.getString("id").trim();
 
 

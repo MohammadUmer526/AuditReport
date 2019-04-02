@@ -1,5 +1,4 @@
 package com.example.auditreport;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -84,16 +83,16 @@ public class Registration extends AppCompatActivity {
 
         //validation for user inputs
         awesomeValidation.addValidation(this,R.id.f_name,
-                                        "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
-                                        R.string.nameerror);
+                "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
+                R.string.nameerror);
         awesomeValidation.addValidation(this,R.id.l_name,
-                                        "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
-                                        R.string.nameerror);
+                "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
+                R.string.nameerror);
         awesomeValidation.addValidation(this, R.id.designation,
-                                       "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
-                                        R.string.designationerror);
+                "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
+                R.string.designationerror);
         awesomeValidation.addValidation(this,R.id.email, Patterns.EMAIL_ADDRESS,
-                                         R.string.emailerror);
+                R.string.emailerror);
 
         // onclick for submitting registration
         btn_register.setOnClickListener(new View.OnClickListener() {
