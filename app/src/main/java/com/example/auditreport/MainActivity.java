@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     // declare the variables
     SessionManager sessionManager;
-    private EditText email, password;
+    private EditText name, password;
     private Button btn_login;
     private ProgressBar loading;
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Setting variables
         loading = findViewById(R.id.loading);
-        email = findViewById(R.id.u_name);
+        name = findViewById(R.id.u_name);
         password = findViewById(R.id.password);
         btn_login = findViewById(R.id.btn_login);
         //btnlog_out = findViewById(R.id.log_out);
@@ -91,13 +91,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, AuditerHome.class));
 
 
-                String mEmail = email.getText().toString().trim();
+                String mEmail = name.getText().toString().trim();
                 String mPass = password.getText().toString().trim();
 
                 if(!mEmail.isEmpty() || !mPass.isEmpty()){
                     logIn(mEmail,mPass);
                 }else {
-                    email.setError("Please insert an user name");
+                    name.setError("Please insert an user name");
                     password.setError("Please insert a password");
                 }
 
@@ -119,11 +119,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //LogIn method to perform login's functionalities
-    public void logIn(final String email, final  String password){
+    public void logIn(final String name, final  String password){
         loading.setVisibility(View.VISIBLE);
         btn_login.setVisibility(View.GONE);
 
-        String URL_LOGIN = "" ;
+        String URL_LOGIN = "http://192.168.142.25/Systems/api/UserLogin.php" ;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_LOGIN,
                 new Response.Listener<String>() {
 
@@ -138,8 +138,9 @@ public class MainActivity extends AppCompatActivity {
                             if (success.equals("1")) {
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject object = jsonArray.getJSONObject(i);
-                                    String name = object.getString("name").trim();
-                                    String email = object.getString("email").trim();
+                                    String name = object.getString("username").trim();
+
+                                    String email = object.getString("password").trim();
                                     String id = object.getString("id").trim();
 
 
@@ -180,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams(){
                 Map<String,String> params = new HashMap<>();
-                params.put("email",email);
+                params.put("username",name);
                 params.put("password", password);
                 return  params;
             }

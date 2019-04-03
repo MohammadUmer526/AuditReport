@@ -1,6 +1,8 @@
 package com.example.auditreport;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -80,6 +82,9 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
                  String mProjectName = projectName.getText().toString().trim();
                  String mCustomer = customer.getText().toString().trim();
                  String mNoNc = no_of_nc.getText().toString().trim();
+                 SharedPreferences preferences = getSharedPreferences("preference_name",
+                         Context.MODE_PRIVATE);
+                 preferences.edit().putString("no_of_nc", mNoNc).commit();
 
 
 
@@ -216,7 +221,13 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
 
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             requestQueue.add(stringRequest);
+
+
+
+
     }
+
+
 
 
 }

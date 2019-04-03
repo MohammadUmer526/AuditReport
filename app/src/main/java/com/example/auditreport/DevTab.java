@@ -17,5 +17,4 @@ public class DevTab extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_dev_tab, container, false);
     }
-
 }

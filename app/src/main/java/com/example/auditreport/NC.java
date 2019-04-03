@@ -1,11 +1,13 @@
 package com.example.auditreport;
 
-import android.support.v7.app.ActionBar;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 
 import java.util.ArrayList;
 public class NC extends AppCompatActivity {
@@ -26,7 +28,6 @@ public class NC extends AppCompatActivity {
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = lv.getItemAtPosition(position);
                 NCList fullObject = (NCList) o;
-                //Toast.makeText(NC.this, "You have chosen: " + " " + fullObject.getNc_summ(), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -35,8 +36,13 @@ public class NC extends AppCompatActivity {
 
         ArrayList<NCList> results = new ArrayList<NCList>();
 
+        SharedPreferences preferences = getSharedPreferences("preference_name",
+                Context.MODE_PRIVATE);
+        String value = preferences.getString("no_of_nc", "");
+        assert value != null;
+        int int_value = Integer.parseInt(value);
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < int_value; i++) {
             NCList sr = new NCList();
             sr.setNc_summ("AB");
             sr.setType("San Francisco, CA");

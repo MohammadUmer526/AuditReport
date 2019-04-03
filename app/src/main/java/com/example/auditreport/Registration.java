@@ -133,7 +133,7 @@ public class Registration extends AppCompatActivity {
         final  String c_pasword = this.c_password.getText().toString().trim();
 
 
-        String URL_REGIST = "" ;
+        String URL_REGIST = "http://192.168.142.25/Systems/api/register.php" ;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGIST,
                 new Response.Listener<String>() {
                     @Override

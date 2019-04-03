@@ -10,20 +10,25 @@
             android:title="Home" />
 
 
-        <menu>
-            <item
-                android:id="@+id/add_report"
-                android:icon="@drawable/ic_add_black_24dp"
-                android:title="Add Report"
-                tools:ignore="HardcodedText" />
-            <item
-                android:id="@+id/view_reports"
-                android:icon="@drawable/ic_pageview_black_24dp"
-                android:title="View Reports"
-                tools:ignore="HardcodedText" />
-        </menu>
+
     </group>
 
+    <item android:title="Report"
+        android:id="@+id/submenu_2">
+
+    <menu>
+        <item
+            android:id="@+id/add_report"
+            android:icon="@drawable/ic_add_black_24dp"
+            android:title="Add Report"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/view_reports"
+            android:icon="@drawable/ic_pageview_black_24dp"
+            android:title="View Reports"
+            tools:ignore="HardcodedText" />
+    </menu>
+    </item>
     <item
         android:id="@+id/audit_settings"
         android:icon="@drawable/ic_settings_black_24dp"

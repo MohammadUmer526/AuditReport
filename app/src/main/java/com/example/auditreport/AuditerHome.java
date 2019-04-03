@@ -2,27 +2,37 @@ package com.example.auditreport;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.view.View;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.chart.common.listener.Event;
+import com.anychart.chart.common.listener.ListenersInterface;
+import com.anychart.charts.Pie;
+import com.anychart.enums.Align;
+import com.anychart.enums.LegendLayout;
+
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.anychart.core.Chart;
 
+import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class AuditerHome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +40,45 @@ public class AuditerHome extends AppCompatActivity
         setContentView(R.layout.activity_auditer_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
+
+        Pie pie = AnyChart.pie();
+
+        pie.setOnClickListener(new ListenersInterface.OnClickListener(new String[]{"x", "value"}) {
+            @Override
+            public void onClick(Event event) {
+                Toast.makeText(AuditerHome.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        List<DataEntry> data = new ArrayList<>();
+        data.add(new ValueDataEntry("PM", 6371664));
+        data.add(new ValueDataEntry("SE", 789622));
+        data.add(new ValueDataEntry("QA", 7216301));
+        data.add(new ValueDataEntry("Dev", 1486621));
+        data.add(new ValueDataEntry("Auditor", 1200000));
+
+        pie.data(data);
+
+        pie.title("Reports checked by Admin");
+
+        pie.labels().position("outside");
+
+        pie.legend().title().enabled(true);
+        pie.legend().title()
+                .text("Retail channels")
+                .padding(0d, 0d, 10d, 0d);
+
+        pie.legend()
+                .position("center-bottom")
+                .itemsLayout(LegendLayout.HORIZONTAL)
+                .align(Align.CENTER);
+
+        anyChartView.setChart(pie);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,48 +89,8 @@ public class AuditerHome extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ;
-
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
-
-        List<NC1> nc1List = NC1.createNC1List(getResources());
-        final NC1Adapter adapter = new NC1Adapter(this, nc1List);
-
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        //    List<Chart> chartList = Chart.createChartList(getResources());
-        //     final ChartsAdapter adapter = new ChartsAdapter(this, chartList);
-
-//     //   recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-       /* final SearchView searchView = findViewById(R.id.search_view);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-             //   adapter.filter(query);
-                searchView.clearFocus();
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-            //    adapter.filter(newText);
-                return true;
-            }
-        });
-        searchView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchView.setIconified(false);
-            }
-        });
-
-
-
-*/
     }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -134,7 +143,6 @@ public class AuditerHome extends AppCompatActivity
             startActivity(as);
 
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

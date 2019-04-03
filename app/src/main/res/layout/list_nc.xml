@@ -25,7 +25,7 @@
             android:textStyle="bold"
             android:textSize="40sp"
             android:gravity="center"
-            android:background="#ffffff"
+            android:background="#333333"
             android:textColor="@color/systemsorange"
             tools:ignore="HardcodedText" />
 
@@ -33,12 +33,10 @@
 
             <TextView
                 android:id="@+id/txt_Summary"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="NC Summary: "
                 android:textStyle="bold"
-                android:background="#ffffff"
                 android:textColor="@color/systemsorange"
                 tools:ignore="HardcodedText" />
 
@@ -64,7 +62,6 @@
                 android:layout_height="wrap_content"
                 android:text="Type# 1"
                 android:textStyle="bold"
-                android:background="#ffffff"
                 android:textColor="@color/systemsorange"
                 tools:ignore="HardcodedText" />
 
@@ -86,7 +83,6 @@
                 android:layout_height="wrap_content"
                 android:text="Owner# 1"
                 android:textStyle="bold"
-                android:background="#ffffff"
                 android:textColor="@color/systemsorange"
                 tools:ignore="HardcodedText" />
 
@@ -110,7 +106,6 @@
                 android:layout_height="wrap_content"
                 android:text="Total Points"
                 android:textStyle="bold"
-                android:background="#ffffff"
                 android:textColor="@color/systemsorange"
                 tools:ignore="HardcodedText" />
 
