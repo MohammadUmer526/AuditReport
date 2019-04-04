@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -30,20 +33,28 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import helpers.CustomJSONObjectRequest;
+import helpers.VolleyController;
+
 public class Registration extends AppCompatActivity {
 
 
     //declare the variables
-    private EditText f_name, l_name, designation, e_mai, password, c_password;
+    private EditText f_name, l_name, designation, email, password, c_password;
     private Button btn_register;
     private ProgressBar loading;
     SessionManager sessionManager;
+
+    private String url = "http://192.168.142.25/Systems/api/register.php";
+    private static String KEY_SUCCESS = "success";
+    private static String KEY_USERID  = "login";
+    private Thread thread;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
         //initialize the instance of awsome validation
         // define the awsome validations tep
         AwesomeValidation awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
@@ -52,12 +63,27 @@ public class Registration extends AppCompatActivity {
         f_name = findViewById(R.id.f_name);
         l_name = findViewById(R.id.l_name);
         designation = findViewById(R.id.designation);
-        e_mai = findViewById(R.id.email);
+        email = findViewById(R.id.email);
         password = findViewById(R.id.password);
-        c_password = findViewById(R.id.c_password);
+      //  c_password = findViewById(R.id.c_password);
         btn_register = findViewById(R.id.btn_register);
         loading = findViewById(R.id.loading);
 
+
+        thread = new Thread(){
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(3500); // As I am using LENGTH_LONG in Toast
+                    Intent login = new Intent(Registration.this, MainActivity.class);
+                    login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(login);
+                    finish();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
 
 
         TextView link_login = findViewById(R.id.link_login);
@@ -95,12 +121,6 @@ public class Registration extends AppCompatActivity {
                 R.string.emailerror);
 
         // onclick for submitting registration
-        btn_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Register();
-            }
-        });
 
 
 
@@ -111,15 +131,94 @@ public class Registration extends AppCompatActivity {
                 startActivity(new Intent(Registration.this, MainActivity.class));
             }
         });
+
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (TextUtils.isEmpty(email.getText()) || !android.util.Patterns.EMAIL_ADDRESS.matcher(email.getText()).matches()) {
+                    Toast.makeText(getApplicationContext(), "Please enter an invalid email", Toast.LENGTH_LONG).show();
+                }else if(TextUtils.isEmpty(password.getText()) || password.getText().length() < 8 || password.getText().length() > 10) {
+                    Toast.makeText(getApplicationContext(), "Your password must contain 8-30 character.", Toast.LENGTH_LONG).show();
+                }else if(TextUtils.isEmpty(f_name.getText()) || f_name.getText().length() < 2 || f_name.getText().length() > 10) {
+                    Toast.makeText(getApplicationContext(), "Your username must contain 2-10 character.", Toast.LENGTH_LONG).show();
+                }else if(TextUtils.isEmpty(l_name.getText()) || l_name.getText().length() < 2 || l_name.getText().length() > 10) {
+                    Toast.makeText(getApplicationContext(), "Your username must contain 2-10 character.", Toast.LENGTH_LONG).show();
+                }else if(TextUtils.isEmpty(designation.getText()) || f_name.getText().length() < 2 || f_name.getText().length() > 10) {
+                    Toast.makeText(getApplicationContext(), "Your designation must contain 2-10 character.", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    CustomJSONObjectRequest rq = new CustomJSONObjectRequest(Request.Method.POST, url, null,
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    try {
+                                        if (response.getString(KEY_SUCCESS) != null) {
+                                            int success = Integer.parseInt(response.getString(KEY_SUCCESS));
+                                            if (success == 1) {
+                                                Toast.makeText(getApplicationContext(), "Successfully registered", Toast.LENGTH_LONG).show();
+                                                thread.start();
+
+                                                Intent rl = new Intent(Registration.this, MainActivity.class);
+                                                startActivity(rl);
+                                            } else if (success == 0) {
+                                                Toast.makeText(getApplicationContext(),"Email already exists", Toast.LENGTH_LONG).show();
+                                            }else if (success == 2) {
+                                                Toast.makeText(getApplicationContext(), "User Name already exists ", Toast.LENGTH_LONG).show();
+                                            }else {
+                                                Toast.makeText(getApplicationContext(), "Invalid Credentials", Toast.LENGTH_LONG).show();
+                                            }
+
+
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d("Response Error", error.toString());
+                            Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
+                        }
+                    }) {
+
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            HashMap<String, String> headers = new HashMap<String, String>();
+                            headers.put("Content-Type", "application/x-www-form-urlencoded");
+                            return headers;
+                        }
+
+                        @Override
+                        protected Map<String, String> getParams() {
+                            Map<String, String> params = new HashMap<String, String>();
+                           // params.put("tag", "register");
+                            params.put("email", email.getText().toString());
+                            params.put("fname", f_name.getText().toString());
+                            params.put("lname", l_name.getText().toString());
+                            params.put("designation", designation.getText().toString());
+                            params.put("password",password.getText().toString());
+                            return params;
+                        }
+
+                    };
+
+                    VolleyController.getInstance(getApplicationContext()).addToRequestQueue(rq);
+                }
+
+            }
+        });
+
+
     }
 
 
-    public void set(String abcm, Integer a){
 
-    }
     /**
      *
-     */
+   /*  */
+    /*
     public void Register(){
         loading.setVisibility(View.VISIBLE);
         btn_register.setVisibility(View.GONE);
@@ -190,4 +289,7 @@ public class Registration extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+    */
+
+
 }

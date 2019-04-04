@@ -45,7 +45,7 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
     private String TEXT_VIEW_KEY = "com.example.auditreport.FormPageOne";
 
     //defining AwesomeValidation object
-    private AwesomeValidation awesomeValidation;
+    private AwesomeValidation awesomeValidation, awesomeValidation1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,9 +70,9 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
                 R.string.nameerror);
 
 
-        awesomeValidation.addValidation(this, R.id.customer_edit,
-                "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
-                R.string.ncerror);
+//        awesomeValidation1.addValidation(this, R.id.customer_edit,
+                //"^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
+              //  R.string.ncerror);
 
         txt_Next.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -82,6 +82,9 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
                  String mProjectName = projectName.getText().toString().trim();
                  String mCustomer = customer.getText().toString().trim();
                  String mNoNc = no_of_nc.getText().toString().trim();
+                 if (mNoNc.isEmpty()){
+
+                 }
                  SharedPreferences preferences = getSharedPreferences("preference_name",
                          Context.MODE_PRIVATE);
                  preferences.edit().putString("no_of_nc", mNoNc).commit();

@@ -98,7 +98,7 @@
                         android:inputType="textPassword"
                         android:textColor="#555555"
                         tools:ignore="HardcodedText"
-                        android:maxLength="8"
+                        android:maxLength="12"
                         tools:targetApi="o" />
 
                 </android.support.design.widget.TextInputLayout>
