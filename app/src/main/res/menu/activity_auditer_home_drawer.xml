@@ -31,10 +31,13 @@
     </menu>
     </item>
     <item
-        android:id="@+id/audit_settings"
+        android:id="@+id/audit_logut"
         android:icon="@drawable/ic_settings_black_24dp"
-        android:title="Settings"
+        android:title="Log Out"
         tools:ignore="HardcodedText" />
+
+
+
 
 
 

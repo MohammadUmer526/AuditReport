@@ -1,91 +1,33 @@
 package com.example.auditreport;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import com.anychart.AnyChart;
-import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.chart.common.listener.Event;
-import com.anychart.chart.common.listener.ListenersInterface;
-import com.anychart.charts.Pie;
-import com.anychart.enums.Align;
-import com.anychart.enums.LegendLayout;
-
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
-
-
-public class AuditerHome extends AppCompatActivity
+public class AdminHome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-SessionManager sessionManager;
-private TextView mNameTextView, mEmailTextView;
+    private SessionManager sessionManager;
 
-
+    private TextView txtName, txtEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auditer_home);
+        setContentView(R.layout.activity_admin_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        sessionManager = new SessionManager(this);
-
-        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
-        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
-
-        Pie pie = AnyChart.pie();
-
-        pie.setOnClickListener(new ListenersInterface.OnClickListener(new String[]{"x", "value"}) {
-            @Override
-            public void onClick(Event event) {
-                Toast.makeText(AuditerHome.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("PM", 6371664));
-        data.add(new ValueDataEntry("SE", 789622));
-        data.add(new ValueDataEntry("QA", 7216301));
-        data.add(new ValueDataEntry("Dev", 1486621));
-        data.add(new ValueDataEntry("Auditor", 1200000));
-
-        pie.data(data);
-
-        pie.title("Reports checked by Admin");
-
-        pie.labels().position("outside");
-
-        pie.legend().title().enabled(true);
-        pie.legend().title()
-                .text("Retail channels")
-                .padding(0d, 0d, 10d, 0d);
-
-        pie.legend()
-                .position("center-bottom")
-                .itemsLayout(LegendLayout.HORIZONTAL)
-                .align(Align.CENTER);
-
-        anyChartView.setChart(pie);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -97,22 +39,19 @@ private TextView mNameTextView, mEmailTextView;
         navigationView.setNavigationItemSelectedListener(this);
 
         View header = navigationView.getHeaderView(0);
-
-
-        mNameTextView = header.findViewById(R.id.oth_nav_name);
-        mEmailTextView = header.findViewById(R.id.oth_nav_mail);
+        txtName = header.findViewById(R.id.adm_nav_name);
+        txtEmail = header.findViewById(R.id.adm_nav_mail);
 
         SharedPreferences name_preference = getSharedPreferences("preference_name",
                 Context.MODE_PRIVATE);
-        String nav_name = name_preference.getString("name", "");
+        String adm_nav_name = name_preference.getString("name", "");
 
         SharedPreferences email_preference = getSharedPreferences("preference_email",
                 Context.MODE_PRIVATE);
-        String nav_mail = email_preference.getString("email", "");
-        mNameTextView.setText(nav_name);
-        mEmailTextView.setText(nav_mail);
-
-
+        String adm_nav_mail = email_preference.getString("email", "");
+        txtName.setText(adm_nav_name);
+        txtEmail.setText(adm_nav_mail);
+        sessionManager = new SessionManager(this);
     }
 
     @Override
@@ -128,7 +67,7 @@ private TextView mNameTextView, mEmailTextView;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.auditer_home, menu);
+        getMenuInflater().inflate(R.menu.admin_home, menu);
         return true;
     }
 
@@ -153,17 +92,19 @@ private TextView mNameTextView, mEmailTextView;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.audit_home) {
+        if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.add_report) {
-            Intent ar = new Intent(AuditerHome.this, FormPageOne.class);
-            startActivity(ar);
+        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.view_reports) {
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.audit_logut) {
+            sessionManager.logout_adm();
 
-            sessionManager.logout();
+
+        } else if (id == R.id.nav_send) {
 
         }
 

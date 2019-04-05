@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/adm_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home"
+            tools:ignore="HardcodedText" />
+
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Reports"
+            tools:ignore="HardcodedText">
+            <menu>
+            <item
+                android:id="@+id/view_report_det"
+                android:icon="@drawable/ic_details_black_24dp"
+                android:title="View Report"
+                tools:ignore="HardcodedText" />
+            <item
+                android:id="@+id/view_roles"
+                android:icon="@drawable/ic_pageview_black_24dp"
+                android:title="View Roles"
+                tools:ignore="HardcodedText" />
+
+                <item
+                    android:id="@+id/view_stages"
+                    android:icon="@drawable/ic_format_align_justify_black_24dp"
+                    android:title="View Stages"
+                    tools:ignore="HardcodedText" />
+                <item
+                    android:id="@+id/view_questions"
+                    android:icon="@drawable/ic_question_answer_black_24dp"
+                    android:title="View Questions"
+                    tools:ignore="HardcodedText" />
+            </menu>
+        </item>
+    </group>
+
+
+    <item
+        android:id="@+id/audit_logut"
+        android:icon="@drawable/ic_error_outline_black_24dp"
+        android:title="Log Out"
+        tools:ignore="HardcodedText" />
+
+</menu>

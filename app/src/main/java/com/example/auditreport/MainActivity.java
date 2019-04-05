@@ -1,6 +1,8 @@
 package com.example.auditreport;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     // declare the variables
     SessionManager sessionManager;
     private EditText name, password;
-    private Button btn_login;
     private ProgressBar loading;
 
     private String url = "http://192.168.142.25/Systems/api/login.php";
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         loading = findViewById(R.id.loading);
         name = findViewById(R.id.u_name);
         password = findViewById(R.id.password);
-        btn_login = findViewById(R.id.btn_login);
+        Button btn_login = findViewById(R.id.btn_login);
         TextView link_register = findViewById(R.id.link_regist);
 
 
@@ -125,21 +126,51 @@ public class MainActivity extends AppCompatActivity {
                                                     JSONObject object = jsonArray.getJSONObject(i);
 
 
-
                                                     String name = object.getString("name").trim();
                                                     String email = object.getString("email").trim();
                                                     String id = object.getString("id").trim();
-                                                   // String desg = object.getString("designation").trim();
+                                                    String desg = object.getString("designation").trim();
 
-                                                    Toast.makeText(MainActivity.this, "Success Login" +
-                                                            " \nYour Name: " + name + " \nEmail: " + email , Toast.LENGTH_SHORT).show();
-                                                    sessionManager.createSession(name, email, id);
+                                                  //  Toast.makeText(MainActivity.this, "Success Login" +
+                                                    //        " \nYour Name: " + name + " \nEmail: " + email + "Des: " + desg, Toast.LENGTH_SHORT).show();
+                                                    //sessionManager.createSession(name, email, id);
+
+                                                    if (desg.equals("Admin")) {
+                                                        Toast.makeText(MainActivity.this, "Success Login" +
+                                                                " \nYour Name: " + name + " \nEmail: " + email + "\nDes: " + desg, Toast.LENGTH_SHORT).show();
+                                                        sessionManager.createSession(name, email, id);
+
+                                                        SharedPreferences name_preference = getSharedPreferences("preference_name",
+                                                                Context.MODE_PRIVATE);
+                                                        name_preference.edit().putString("name", name).apply();
+
+                                                        SharedPreferences mail_preference = getSharedPreferences("preference_email",
+                                                                Context.MODE_PRIVATE);
+                                                        mail_preference.edit().putString("email", email).apply();
 
 
-                                                    Intent home = new Intent(MainActivity.this, AuditerHome.class);
-                                                     startActivity(home);
-                                                finish();
-                                            }
+                                                        Intent home = new Intent(MainActivity.this, AdminHome.class);
+                                                        startActivity(home);
+                                                        finish();
+                                                    } else {
+
+                                                        Toast.makeText(MainActivity.this, "Success Login" +
+                                                                " \nYour Name: " + name + " \nEmail: " + email + "Des: " + desg, Toast.LENGTH_SHORT).show();
+                                                        sessionManager.createSession(name, email, id);
+
+                                                        SharedPreferences name_preference = getSharedPreferences("preference_name",
+                                                                Context.MODE_PRIVATE);
+                                                        name_preference.edit().putString("name", name).apply();
+
+                                                        SharedPreferences mail_preference = getSharedPreferences("preference_email",
+                                                                Context.MODE_PRIVATE);
+                                                        mail_preference.edit().putString("email", email).apply();
+
+                                                        Intent home = new Intent(MainActivity.this, AuditerHome.class);
+                                                        startActivity(home);
+                                                        finish();
+                                                    }
+                                                }
                                             } else if (success == 0) {
                                                 Toast.makeText(getApplicationContext(), "Invalid email or password.", Toast.LENGTH_LONG).show();
 

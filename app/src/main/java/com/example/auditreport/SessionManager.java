@@ -18,6 +18,7 @@ public class SessionManager {
     public static final String ID = "ID";
     public static final String mNoNc = "mNoNc";
 
+
     public SessionManager(Context context){
         this.context = context;
         int PRIVATE_MODE = 0;
@@ -71,6 +72,14 @@ public class SessionManager {
         editor.commit();
         Intent lg  = new Intent(context, MainActivity.class);
         context.startActivity(lg);
-        ((MainActivity)context).finish();
+        ((AuditerHome)context).finish();
+    }
+
+    public void logout_adm(){
+        editor.clear();
+        editor.commit();
+        Intent lg  = new Intent(context, MainActivity.class);
+        context.startActivity(lg);
+        ((AdminHome)context).finish();
     }
 }
