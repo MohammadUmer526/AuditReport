@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -39,8 +40,8 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
 
     String values [] = {"CRM","Digital Framework"};
     private TextView txt_Next;
-     private EditText projectName, customer, location, no_of_nc;
-    private Spinner comp_spinner, track_spinner;
+     private EditText projectName, customer, no_of_nc;
+    private Spinner comp_spinner, track_spinner,  location;
     private SessionManager sessionManager;
     private String TEXT_VIEW_KEY = "com.example.auditreport.FormPageOne";
 
@@ -56,23 +57,18 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
         projectName = findViewById(R.id.project_name_edit);
         customer = findViewById(R.id.customer_edit);
 
-        //  location = findViewById(R.id.location_edit);
-        txt_Next = findViewById(R.id.txt_Nxt);
+        location = findViewById(R.id.spinner_loc);
         no_of_nc = findViewById(R.id.number_of_nc_edit);
 
 
         comp_spinner = findViewById(R.id.compet_spinner);
          track_spinner = findViewById(R.id.track_spinner);
+        txt_Next = findViewById(R.id.txt_Nxt);
          comp_spinner.setOnItemSelectedListener(this);
 
         awesomeValidation.addValidation(this, R.id.project_name_edit,
                 "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
                 R.string.nameerror);
-
-
-//        awesomeValidation1.addValidation(this, R.id.customer_edit,
-                //"^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",
-              //  R.string.ncerror);
 
         txt_Next.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -82,6 +78,10 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
                  String mProjectName = projectName.getText().toString().trim();
                  String mCustomer = customer.getText().toString().trim();
                  String mNoNc = no_of_nc.getText().toString().trim();
+                 String mCompt = comp_spinner.getSelectedItem().toString();
+                 String mTrack = track_spinner.getSelectedItem().toString();
+                 String mLOc = location.getSelectedItem().toString();
+
                  if (mNoNc.isEmpty()){
 
                  }
@@ -92,16 +92,17 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
 
 
                  if(!mProjectName.isEmpty() || !mCustomer.isEmpty() || !mNoNc.isEmpty()){
-                     step1(mProjectName, mCustomer, mNoNc);
+                     step1(mProjectName, mCustomer, mCompt, mTrack, mLOc);
+
                  } else if(mProjectName.isEmpty()){
                      projectName.setError("Enter a project name");
                  }
                  else if(mCustomer.isEmpty()){
                      customer.setError("Enter a customer");
                  }
-                 else if(mNoNc.isEmpty()){
-                     no_of_nc.setError("Enter NC");
-                 }
+//                 else if(mNoNc.isEmpty()){
+  //                   no_of_nc.setError("Enter NC");
+                // }
              }
          });
 
@@ -159,8 +160,18 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
 
         }
 
-        public void step1(final String projectName, final  String customerName,
-                          final String no_of_nc) {
+        public void step1(final String projectName, final  String customerName, final String mLoc,
+                          final String mTrack, final String mCompt) {
+
+            RequestQueue queue = Volley.newRequestQueue(this);
+
+            Map<String, String> postParam= new HashMap<String, String>();
+            postParam.put("projectName", projectName);
+            postParam.put("Customer", customerName);
+            postParam.put("location",mLoc);
+
+            postParam.put("tracks", mTrack);
+            postParam.put("competency",mCompt);
 
             String URL_STEP1 = "";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STEP1,
@@ -171,9 +182,9 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
                         public void onResponse(String response) {
                             try {
                                 JSONObject jsonObject = new JSONObject(response);
-                                String success = jsonObject.getString("Success");
-                                JSONArray jsonArray = jsonObject.getJSONArray("login");
-
+                                String success = jsonObject.getString("data");
+                              //  JSONArray jsonArray = jsonObject.getJSONArray("login");
+/*
                                 if (success.equals("1")) {
                                     for (int i = 0; i < jsonArray.length(); i++) {
                                         JSONObject object = jsonArray.getJSONObject(i);
@@ -188,6 +199,7 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
 
                                     }
                                 }
+                                */
                             } catch (JSONException e) {
                                 e.printStackTrace();
 
@@ -210,17 +222,28 @@ public class FormPageOne extends AppCompatActivity implements AdapterView.OnItem
             )
             {
 
+             /*
                 // putting the valid credentials
                 @Override
                 protected Map<String, String> getParams(){
                     Map<String,String> params = new HashMap<>();
                     params.put("projectName",projectName);
                     params.put("customerName", customerName);
-                    params.put("no_of_nc", no_of_nc);
+
                     return  params;
                 }
+*/
 
-        };
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    HashMap<String, String> headers = new HashMap<String, String>();
+                    headers.put("Content-Type", "application/json");
+                    //headers.put("username",name);
+                    //headers.put("password", password);
+                    return headers;
+                }
+
+            };
 
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             requestQueue.add(stringRequest);

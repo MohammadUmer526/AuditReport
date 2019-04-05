@@ -13,10 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".ViewRoles"></activity>
+        <activity android:name=".LogIn" />
         <activity
             android:name=".AdminHome"
             android:label="@string/title_activity_admin_home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AuditSettings"
             android:label="@string/title_activity_audit_settings"

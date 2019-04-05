@@ -1,6 +1,7 @@
 package com.example.auditreport;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -92,8 +93,12 @@ public class AdminHome extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.view_report_det) {
             // Handle the camera action
+
+            Intent lg = new Intent(AdminHome.this, LogIn.class);
+            startActivity(lg);
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {

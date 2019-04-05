@@ -22,8 +22,11 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import org.json.JSONArray;
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText name, password;
     private ProgressBar loading;
 
-    private String url = "http://192.168.142.25/Systems/api/login.php";
+    private String URL_LOGIN = "http://192.168.142.25/Systems/api/login.php";
 
     private static String KEY_SUCCESS = "success";
     private static String KEY_USERID  = "login";
@@ -100,13 +103,13 @@ public class MainActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            if (TextUtils.isEmpty(name.getText())) {
+                if (TextUtils.isEmpty(name.getText())) {
                     Toast.makeText(getApplicationContext(), "Please enter a valid user name", Toast.LENGTH_LONG).show();
                 }else if(TextUtils.isEmpty(password.getText()) || password.getText().length() < 3 || password.getText().length() > 32) {
                     Toast.makeText(getApplicationContext(), "Your password must contain 8-32 character.", Toast.LENGTH_LONG).show();
                 }
                 else{
-                    CustomJSONObjectRequest rq = new CustomJSONObjectRequest(Request.Method.POST, url, null,
+                    CustomJSONObjectRequest rq = new CustomJSONObjectRequest(Request.Method.POST, URL_LOGIN, null,
                             new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
@@ -131,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                                                     String id = object.getString("id").trim();
                                                     String desg = object.getString("designation").trim();
 
-                                                  //  Toast.makeText(MainActivity.this, "Success Login" +
+                                                    //  Toast.makeText(MainActivity.this, "Success Login" +
                                                     //        " \nYour Name: " + name + " \nEmail: " + email + "Des: " + desg, Toast.LENGTH_SHORT).show();
                                                     //sessionManager.createSession(name, email, id);
 
