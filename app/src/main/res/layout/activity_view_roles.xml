@@ -1,19 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".ViewRoles">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvContacts"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="List of Roles"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="#000"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingBottom="10dp"
+        tools:ignore="HardcodedText">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:text="S#NO"
+            android:textStyle="bold"
+            tools:ignore="Suspicious0dp" />
+
+        <TextView
+            android:id="@+id/role_name"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:textSize="20sp"
+            android:paddingStart="10dp"
+            android:text="Roles Name"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,LabelFor,Suspicious0dp"
+
+            tools:targetApi="o" />
+
+
+
+        <TextView
+            android:id="@+id/upload_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="16dp"
+            android:paddingRight="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Action"
+            tools:ignore="HardcodedText,SmallSp" />
+    </LinearLayout>
+
+
+
+        <ListView
+        android:id="@+id/lv_Roles"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+</LinearLayout>

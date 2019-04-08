@@ -54,6 +54,7 @@ public class ChartsAdapter extends RecyclerView.Adapter<ChartsAdapter.ViewHolder
         return context;
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
     public ChartsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();

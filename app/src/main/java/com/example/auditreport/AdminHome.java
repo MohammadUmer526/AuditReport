@@ -99,7 +99,10 @@ public class AdminHome extends AppCompatActivity
             Intent lg = new Intent(AdminHome.this, LogIn.class);
             startActivity(lg);
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.view_roles) {
+
+            Intent vr = new Intent(AdminHome.this, ViewRoles.class);
+            startActivity(vr);
 
         } else if (id == R.id.nav_slideshow) {
 

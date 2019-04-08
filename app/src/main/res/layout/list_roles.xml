@@ -9,13 +9,26 @@
     >
 
     <TextView
-        android:id="@+id/role_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:id="@+id/edt_srn"
+        android:layout_width="66dp"
+        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+
+        android:textSize="20sp"
         tools:ignore="Suspicious0dp" />
 
-
+    <TextView
+        android:id="@+id/role_name"
+        android:layout_width="0dp"
+        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        tools:ignore="Autofill,LabelFor,Suspicious0dp"
+        tools:targetApi="o" />
 
     <Button
         android:id="@+id/upload_button"
@@ -23,7 +36,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:textSize="10sp"
-        />
+        android:textSize="16sp"
+        android:text="Update"
+        tools:ignore="HardcodedText,SmallSp" />
 
 </LinearLayout>

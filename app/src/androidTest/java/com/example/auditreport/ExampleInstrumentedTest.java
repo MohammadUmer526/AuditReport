@@ -1,26 +1,26 @@
 package com.example.auditreport;
 
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import static org.junit.Assert.*;
-
 /**
- * Instrumented test, which will execute on an Android device.
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ * Created by Riddhi - Rudra on 28-Jul-17.
  */
-@RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest {
-    @Test
-    public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.auditreport", appContext.getPackageName());
+public class FormElementTextPassword extends BaseFormElement {
+
+    public FormElementTextPassword() {
     }
-}
+
+    public static FormElementTextPassword createInstance() {
+        FormElementTextPassword FormElementTextPassword = new FormElementTextPassword();
+        FormElementTextPassword.setType(BaseFormElement.TYPE_EDITTEXT_PASSWORD);
+        return FormElementTextPassword;
+    }
+
+    public FormElementTextPassword setTag(int mTag) {
+        return (FormElementTextPassword)  super.setTag(mTag);
+    }
+
+    public FormElementTextPassword setType(int mType) {
+        return (FormElementTextPassword)  super.setType(mType);
+    }
+
+    public FormElement

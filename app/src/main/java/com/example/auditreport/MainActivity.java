@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText name, password;
     private ProgressBar loading;
 
-    private String URL_LOGIN = "http://192.168.142.25/Systems/api/login.php";
+    private String URL_LOGIN = "http://192.168.142.25:8080/Systems/api/login.php";
 
     private static String KEY_SUCCESS = "success";
     private static String KEY_USERID  = "login";
